@@ -3,16 +3,27 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = [
+    {
+      id: 1,
+      name: 'Johnny',
+      imageURL: 'https://randomuser.me/api/portraits/men/63.jpg'
+    },
+    {
+      id: 2,
+      name: 'Jane',
+      imageURL: 'https://randomuser.me/api/portraits/women/93.jpg'
+    },
+    {
+      id: 3,
+      name: 'Jimbo',
+      imageURL: 'https://randomuser.me/api/portraits/men/23.jpg'
+    }
+  ]
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        
       </div>
     );
   }
