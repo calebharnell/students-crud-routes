@@ -6,14 +6,15 @@ import {
   Link
 } from 'react-router-dom';
 import Index from './components/Index';
-import New from './components/New'
+import New from './components/New';
+import ShowStudent from './components/ShowStudent'
 
 class App extends Component {
   state = {
     students: [
       {
         id: 1,
-        name: 'Johnny',
+        name: 'Creepy Kanye',
         imageURL: 'https://randomuser.me/api/portraits/men/63.jpg',
         bio: 'I am a banana'
       },
@@ -39,6 +40,12 @@ class App extends Component {
     })
   }
 
+  findStudent = (id) => {
+    return this.state.students.find((student) => {
+      return student.id === parseInt(id, 10)
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -48,11 +55,10 @@ class App extends Component {
               <li><Link to="/">Index</Link></li>
               <li><Link to="/new">New</Link></li>
             </ul>
-
             <hr/>
-
             <Route exact path="/" component={() => <Index students={this.state.students} />} />
             <Route path="/new" component={() => <New addStudent={this.addStudent}/>}/>
+            <Route path="/:id" component={({match}) => <ShowStudent student={this.findStudent(match.params.id)} />} />
           </div>
         </Router>
       </div>
